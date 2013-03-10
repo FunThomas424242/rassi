@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/rassi.spec/src-gen" modelPluginID="rassi.spec"
+    modelName="spec" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false">
+  <foreignModel>spec.ecore</foreignModel>
+  <genPackages prefix="Spec" basePackage="rassi" disposableProviderFactory="true"
+      ecorePackage="spec.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="spec.ecore#//Zielkategorie">
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//Zielkategorie/Fuehrungsziel"/>
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//Zielkategorie/Strategieziel"/>
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//Zielkategorie/Operativziel"/>
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//Zielkategorie/Allgemeinziel"/>
+    </genEnums>
+    <genClasses ecoreClass="spec.ecore#//Hauptsystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Hauptsystem/name"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Stakeholder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Stakeholder/namenskuerzel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Stakeholder/beschreibung"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Prozess"/>
+    <genClasses ecoreClass="spec.ecore#//Ereignis"/>
+    <genClasses ecoreClass="spec.ecore#//Prozesswort"/>
+    <genClasses ecoreClass="spec.ecore#//Anforderung"/>
+    <genClasses ecoreClass="spec.ecore#//Abk"/>
+    <genClasses ecoreClass="spec.ecore#//Begriff"/>
+    <genClasses ecoreClass="spec.ecore#//Ziel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ziel/kategorie"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ziel/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ziel/beschreibung"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Fremdsystem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Fremdsystem/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Fremdsystem/beschreibung"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//ModelImport">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//ModelImport/importedResource"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="spec.ecore#//ModelElement"/>
+    <genClasses ecoreClass="spec.ecore#//SystemKontext">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//SystemKontext/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//SystemKontext/schnittstellen"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="spec.ecore#//ModelBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//ModelBody/elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//ModelBody/system"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//ModelBody/imports"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Zweck">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Zweck/ziele"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Zweck/stakeholderliste"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Glossar">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test2"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test3"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test4"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test5"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test6"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Stakeholderliste">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Stakeholderliste/stakeholder"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//MasterFile">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//MasterFile/specFile"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//MasterSpezifikation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//MasterSpezifikation/model"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//SubSpezifikation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//SubSpezifikation/masterSpec"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//SubSpezifikation/model"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
