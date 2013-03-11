@@ -78,13 +78,22 @@ RULES {
 	"Zweck des zu spezifizierenden Systems" 
 	"====================================="
 	"Liste der Ziele:" 
-	 ziele*
+	 ziele* 
+	"Abgrenzung der Ziele:"
+	 nichtziele*
 	 stakeholderliste ;
 	
 	Ziel ::= 
 	" * "  
     id['[',']'] 
     kategorie['"','"']
+    beschreibung['"','"'];
+	
+	KeinZiel ::= 
+	" * "  
+    id['[',']'] 
+    kategorie['"','"'] 
+    "Kein Ziel ist "
     beschreibung['"','"'];
 	
 	Stakeholderliste ::= 

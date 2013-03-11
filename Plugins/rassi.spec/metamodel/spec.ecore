@@ -17,7 +17,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Anforderung"/>
   <eClassifiers xsi:type="ecore:EClass" name="Abk"/>
   <eClassifiers xsi:type="ecore:EClass" name="Begriff"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Ziel">
+  <eClassifiers xsi:type="ecore:EClass" name="ZielKontext" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kategorie" lowerBound="1"
         eType="#//Zielkategorie"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -50,10 +50,12 @@
         eType="#//ModelImport" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Zweck" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ziele" upperBound="-1"
-        eType="#//Ziel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholderliste" lowerBound="1"
         eType="#//Stakeholderliste" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ziele" upperBound="-1"
+        eType="#//Ziel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nichtziele" upperBound="-1"
+        eType="#//KeinZiel" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Zielkategorie">
     <eLiterals name="Fuehrungsziel" literal="Führungsziel"/>
@@ -92,4 +94,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//ModelBody"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ziel" eSuperTypes="#//ZielKontext"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeinZiel" eSuperTypes="#//ZielKontext"/>
 </ecore:EPackage>

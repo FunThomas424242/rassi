@@ -25,10 +25,10 @@
     <genClasses ecoreClass="spec.ecore#//Anforderung"/>
     <genClasses ecoreClass="spec.ecore#//Abk"/>
     <genClasses ecoreClass="spec.ecore#//Begriff"/>
-    <genClasses ecoreClass="spec.ecore#//Ziel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ziel/kategorie"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ziel/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ziel/beschreibung"/>
+    <genClasses image="false" ecoreClass="spec.ecore#//ZielKontext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//ZielKontext/kategorie"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//ZielKontext/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//ZielKontext/beschreibung"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Fremdsystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Fremdsystem/name"/>
@@ -48,8 +48,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//ModelBody/imports"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Zweck">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Zweck/ziele"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Zweck/stakeholderliste"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Zweck/ziele"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Zweck/nichtziele"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Glossar">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test1"/>
@@ -72,5 +73,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//SubSpezifikation/masterSpec"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//SubSpezifikation/model"/>
     </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Ziel"/>
+    <genClasses ecoreClass="spec.ecore#//KeinZiel"/>
   </genPackages>
 </genmodel:GenModel>
