@@ -29,7 +29,7 @@ TOKENS {
 
 TOKENSTYLES {
 	"Masterdokument zur ", "Systemkontext", "Spezifikation des Systems " COLOR #7F0055, BOLD;
-	"Prozess" COLOR #7F0055, BOLD;
+	"Prozess", "Liste der Abkürzungen:" COLOR #7F0055, BOLD;
 	"Ereignis" COLOR #7F0055, BOLD;
 	"Prozesswort" COLOR #7F0055, BOLD;
 	"Anforderung" COLOR #7F0055, BOLD;
@@ -103,15 +103,29 @@ RULES {
 	Stakeholder ::= 
 	" * " 
 	namenskuerzel['[',']']   
-	beschreibung['"','"'];
+	beschreibung['"','"']
+	;
 	
 	
 	Glossar ::= 
 	"Glossar" 
 	"======="
-	( "test1" ":" test1  "test2" ":" test2  "test3" ":" test3 "test4" ":" test4  "test5" ":" test5  "test6" ":" test6 )?;
-	Begriff ::= "Begriff" "{" "}";
-	Abk ::= "Abk" "{" "}";
+	"Liste der Begriffe:"
+	begriffe* 	
+	"Liste der Abkürzungen:"
+	abkuerzungen*
+	(  "test3" ":" test3 "test4" ":" test4  "test5" ":" test5  "test6" ":" test6 )?
+	;
+	
+	BegriffsEintrag ::=
+	" * "  begriff['[',']'] definition['"','"'] synonym['"','"']* 
+	;
+	
+	AbkuerzungsEintrag ::= 
+	" * "  
+	abkuerzung['[',']'] 
+	definition['"','"']
+	;
 	
 	Prozess ::= "Prozess" "{" "}";
 	Ereignis ::= "Ereignis" "{" "}";

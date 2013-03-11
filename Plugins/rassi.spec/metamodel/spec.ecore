@@ -15,8 +15,21 @@
   <eClassifiers xsi:type="ecore:EClass" name="Ereignis"/>
   <eClassifiers xsi:type="ecore:EClass" name="Prozesswort"/>
   <eClassifiers xsi:type="ecore:EClass" name="Anforderung"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Abk"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Begriff"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbkuerzungsEintrag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abkuerzung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BegriffsEintrag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="begriff" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synonym" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ZielKontext" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kategorie" lowerBound="1"
         eType="#//Zielkategorie"/>
@@ -64,9 +77,10 @@
     <eLiterals name="Allgemeinziel" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Glossar" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="test1" eType="#//Begriff"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="test2" eType="#//Abk" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="begriffe" upperBound="-1"
+        eType="#//BegriffsEintrag" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="abkuerzungen" upperBound="-1"
+        eType="#//AbkuerzungsEintrag" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="test3" eType="#//Prozesswort"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="test4" eType="#//Prozess"
