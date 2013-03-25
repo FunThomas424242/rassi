@@ -114,7 +114,12 @@ RULES {
 	begriffe* 	
 	"Liste der Abkürzungen:"
 	abkuerzungen*
-	(  "test3" ":" test3 "test4" ":" test4  "test5" ":" test5  "test6" ":" test6 )?
+	"Liste der Prozesse:"
+	prozesse+
+	"Liste der Prozesswörter:"
+	prozesswoerter+
+	"Liste der Ereignisse:"
+	ereignisse*
 	;
 	
 	BegriffsEintrag ::=
@@ -127,14 +132,55 @@ RULES {
 	definition['"','"']
 	;
 	
-	Prozess ::= "Prozess" "{" "}";
-	Ereignis ::= "Ereignis" "{" "}";
-	Prozesswort ::= "Prozesswort" "{" "}";
-	Anforderung ::= "Anforderung" "{" "}";
+	InternerProzess ::= 
+	" * (intern)" name['[',']'] beschreibung['"','"'] prozesswort[]
+	;
+	ExternerProzess ::= 
+	" * (extern)" name['[',']'] beschreibung['"','"'] 
+	;
+		
+	Prozesswort ::= 
+	" * " verb['[',']'] beschreibung['"','"'] synonym['"','"']*
+	;
+	Ereignis ::= 
+	" * " name['[',']']
+	;
+	Lastenbeschreibung ::=
+	"Liste der Anforderungen:"
+	anforderungen+
+	;
+		
+	SystemAktivitaet ::= 
+	" * Systemaktivität" 
+	id['[',']']
+	vorbedingung['"','"']?
+	rechtsverbindlichkeit['"','"']
+	beschreibung['"','"'] 
+	prozesswort['"','"']
+	objekte['"','"']+
+	;
 	
+	EreignisAktivitaet ::=
+	" * EreignisAktivität" 
+	id['[',']']
+	vorbedingung['"','"']?
+	rechtsverbindlichkeit['"','"']
+	beschreibung['"','"']
+	prozesswort['"','"']
+	objekte['"','"']+
+	;
 	
+	BenutzerInteraktion ::=
+	" * BenutzerInteraktion" 
+	id['[',']']
+	vorbedingung['"','"']?
+	rechtsverbindlichkeit['"','"']
+	beschreibung['"','"']
+	prozesswort['"','"']
+	objekte['"','"']+
+	;
 	
-	
+
 	
 	
 }

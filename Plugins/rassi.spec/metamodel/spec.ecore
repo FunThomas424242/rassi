@@ -11,10 +11,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Prozess"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Ereignis"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Prozesswort"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Anforderung"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Prozess" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ereignis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Prozesswort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synonym" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbkuerzungsEintrag">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abkuerzung" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""
@@ -81,14 +95,12 @@
         eType="#//BegriffsEintrag" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="abkuerzungen" upperBound="-1"
         eType="#//AbkuerzungsEintrag" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="test3" eType="#//Prozesswort"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="test4" eType="#//Prozess"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="test5" eType="#//Ereignis"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="test6" eType="#//Anforderung"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ereignisse" upperBound="-1"
+        eType="#//Ereignis" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prozesse" lowerBound="1"
+        upperBound="-1" eType="#//Prozess" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prozesswoerter" lowerBound="1"
+        upperBound="-1" eType="#//Prozesswort" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stakeholderliste">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" upperBound="-1"
@@ -110,4 +122,34 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ziel" eSuperTypes="#//ZielKontext"/>
   <eClassifiers xsi:type="ecore:EClass" name="KeinZiel" eSuperTypes="#//ZielKontext"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Lastenbeschreibung" eSuperTypes="#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anforderungen" lowerBound="1"
+        upperBound="-1" eType="#//Anforderung" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemAktivitaet" eSuperTypes="#//Anforderung"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BenutzerInteraktion" eSuperTypes="#//Anforderung"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EreignisAktivitaet" eSuperTypes="#//Anforderung"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RechtsVerbindlichkeit">
+    <eLiterals name="muss"/>
+    <eLiterals name="sollte" value="1"/>
+    <eLiterals name="wird" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternerProzess" eSuperTypes="#//Prozess"/>
+  <eClassifiers xsi:type="ecore:EClass" name="InternerProzess" eSuperTypes="#//Prozess">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prozesswort" lowerBound="1"
+        eType="#//Prozesswort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Anforderung">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vorbedingung" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rechtsverbindlichkeit"
+        lowerBound="1" eType="#//RechtsVerbindlichkeit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prozesswort" lowerBound="1"
+        eType="#//Prozesswort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objekte" lowerBound="1"
+        upperBound="-1" eType="#//BegriffsEintrag"/>
+  </eClassifiers>
 </ecore:EPackage>

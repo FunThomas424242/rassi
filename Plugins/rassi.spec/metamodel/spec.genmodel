@@ -12,6 +12,11 @@
       <genEnumLiterals ecoreEnumLiteral="spec.ecore#//Zielkategorie/Operativziel"/>
       <genEnumLiterals ecoreEnumLiteral="spec.ecore#//Zielkategorie/Allgemeinziel"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="spec.ecore#//RechtsVerbindlichkeit">
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//RechtsVerbindlichkeit/muss"/>
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//RechtsVerbindlichkeit/sollte"/>
+      <genEnumLiterals ecoreEnumLiteral="spec.ecore#//RechtsVerbindlichkeit/wird"/>
+    </genEnums>
     <genClasses ecoreClass="spec.ecore#//Hauptsystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Hauptsystem/name"/>
     </genClasses>
@@ -19,10 +24,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Stakeholder/namenskuerzel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Stakeholder/beschreibung"/>
     </genClasses>
-    <genClasses ecoreClass="spec.ecore#//Prozess"/>
-    <genClasses ecoreClass="spec.ecore#//Ereignis"/>
-    <genClasses ecoreClass="spec.ecore#//Prozesswort"/>
-    <genClasses ecoreClass="spec.ecore#//Anforderung"/>
+    <genClasses ecoreClass="spec.ecore#//Prozess">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Prozess/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Prozess/beschreibung"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Ereignis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ereignis/name"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Prozesswort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Prozesswort/verb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Prozesswort/synonym"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Prozesswort/beschreibung"/>
+    </genClasses>
     <genClasses ecoreClass="spec.ecore#//AbkuerzungsEintrag">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//AbkuerzungsEintrag/abkuerzung"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//AbkuerzungsEintrag/definition"/>
@@ -62,10 +75,9 @@
     <genClasses ecoreClass="spec.ecore#//Glossar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/begriffe"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/abkuerzungen"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test3"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test4"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test5"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/test6"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/ereignisse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/prozesse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Glossar/prozesswoerter"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Stakeholderliste">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Stakeholderliste/stakeholder"/>
@@ -82,5 +94,23 @@
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Ziel"/>
     <genClasses ecoreClass="spec.ecore#//KeinZiel"/>
+    <genClasses ecoreClass="spec.ecore#//Lastenbeschreibung">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spec.ecore#//Lastenbeschreibung/anforderungen"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//SystemAktivitaet"/>
+    <genClasses ecoreClass="spec.ecore#//BenutzerInteraktion"/>
+    <genClasses ecoreClass="spec.ecore#//EreignisAktivitaet"/>
+    <genClasses ecoreClass="spec.ecore#//ExternerProzess"/>
+    <genClasses ecoreClass="spec.ecore#//InternerProzess">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//InternerProzess/prozesswort"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//Anforderung">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/vorbedingung"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/beschreibung"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/rechtsverbindlichkeit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/prozesswort"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/objekte"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
