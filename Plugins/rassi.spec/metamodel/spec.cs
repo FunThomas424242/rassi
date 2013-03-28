@@ -29,7 +29,7 @@ TOKENS {
 
 TOKENSTYLES {
 	"Masterdokument zur ", "Systemkontext", "Spezifikation des Systems " COLOR #7F0055, BOLD;
-	"Prozess", "Liste der AbkÃ¼rzungen:" COLOR #7F0055, BOLD;
+	"Prozess", "Liste der Abkï¿½rzungen:" COLOR #7F0055, BOLD;
 	"Ereignis" COLOR #7F0055, BOLD;
 	"Prozesswort" COLOR #7F0055, BOLD;
 	"Anforderung" COLOR #7F0055, BOLD;
@@ -112,11 +112,11 @@ RULES {
 	"======="
 	"Liste der Begriffe:"
 	begriffe* 	
-	"Liste der AbkÃ¼rzungen:"
+	"Liste der Abkürzungen:"
 	abkuerzungen*
 	"Liste der Prozesse:"
 	prozesse+
-	"Liste der ProzesswÃ¶rter:"
+	"Liste der Prozesswörter:"
 	prozesswoerter+
 	"Liste der Ereignisse:"
 	ereignisse*
@@ -151,7 +151,7 @@ RULES {
 	;
 		
 	SystemAktivitaet ::= 
-	" * SystemaktivitÃ¤t" 
+	" * Systemaktivität" 
 	id['[',']']
 	vorbedingung['"','"']?
 	rechtsverbindlichkeit['"','"']
@@ -161,7 +161,7 @@ RULES {
 	;
 	
 	EreignisAktivitaet ::=
-	" * EreignisAktivitÃ¤t" 
+	" * EreignisAktivität" 
 	id['[',']']
 	vorbedingung['"','"']?
 	rechtsverbindlichkeit['"','"']
