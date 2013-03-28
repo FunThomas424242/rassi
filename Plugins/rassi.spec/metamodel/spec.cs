@@ -123,27 +123,27 @@ RULES {
 	;
 	
 	BegriffsEintrag ::=
-	" * "  begriff['[',']'] definition['"','"'] synonym['"','"']* 
+	"*"  begriff['[',']'] definition['"','"'] synonym['"','"']* 
 	;
 	
 	AbkuerzungsEintrag ::= 
-	" * "  
+	"*"  
 	abkuerzung['[',']'] 
 	definition['"','"']
 	;
 	
 	InternerProzess ::= 
-	" * (intern)" name['[',']'] beschreibung['"','"'] prozesswort[]
+	"* (intern)" name['[',']'] beschreibung['"','"'] prozesswort['"','"']
 	;
 	ExternerProzess ::= 
-	" * (extern)" name['[',']'] beschreibung['"','"'] 
+	"* (extern)" name['[',']'] beschreibung['"','"'] 
 	;
 		
 	Prozesswort ::= 
-	" * " verb['[',']'] beschreibung['"','"'] synonym['"','"']*
+	"*" verb['[',']'] beschreibung['"','"'] synonym['"','"']*
 	;
 	Ereignis ::= 
-	" * " name['[',']']
+	"*" name['[',']']
 	;
 	Lastenbeschreibung ::=
 	"Liste der Anforderungen:"
@@ -151,9 +151,8 @@ RULES {
 	;
 		
 	SystemAktivitaet ::= 
-	" * Systemaktivität" 
+	"* Systemaktivität" 
 	id['[',']']
-	vorbedingung['"','"']?
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"'] 
 	prozesswort['"','"']
@@ -161,9 +160,8 @@ RULES {
 	;
 	
 	EreignisAktivitaet ::=
-	" * EreignisAktivität" 
+	"* EreignisAktivität" 
 	id['[',']']
-	vorbedingung['"','"']?
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
 	prozesswort['"','"']
@@ -171,16 +169,22 @@ RULES {
 	;
 	
 	BenutzerInteraktion ::=
-	" * BenutzerInteraktion" 
+	"* BenutzerInteraktion" 
 	id['[',']']
-	vorbedingung['"','"']?
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
 	prozesswort['"','"']
 	objekte['"','"']+
 	;
 	
-
+	BedingteAnforderung ::=
+"*" id['[',']']
+"Falls" vorbedingung['"','"']
+	rechtsverbindlichkeit['"','"']
+	beschreibung['"','"']
+	objekte['"','"']+
+	prozesswort['"','"']
+	;
 	
 	
 }

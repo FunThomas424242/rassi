@@ -105,12 +105,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//InternerProzess/prozesswort"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Anforderung">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/vorbedingung"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/beschreibung"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/rechtsverbindlichkeit"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/prozesswort"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/objekte"/>
+    </genClasses>
+    <genClasses ecoreClass="spec.ecore#//BedingteAnforderung">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//BedingteAnforderung/vorbedingung"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
