@@ -84,13 +84,13 @@ RULES {
 	 stakeholderliste ;
 	
 	Ziel ::= 
-	" * "  
+	"*"  
     id['[',']'] 
     kategorie['"','"']
     beschreibung['"','"'];
 	
 	KeinZiel ::= 
-	" * "  
+	"*"  
     id['[',']'] 
     kategorie['"','"'] 
     "Kein Ziel ist "
@@ -101,7 +101,7 @@ RULES {
 	stakeholder* ;
 	
 	Stakeholder ::= 
-	" * " 
+	"*" 
 	namenskuerzel['[',']']   
 	beschreibung['"','"']
 	;
@@ -143,7 +143,7 @@ RULES {
 	"*" verb['[',']'] beschreibung['"','"'] synonym['"','"']*
 	;
 	Ereignis ::= 
-	"*" name['[',']']
+	" * " name['[',']']
 	;
 	Lastenbeschreibung ::=
 	"Beschreibung der Anforderungen"
@@ -151,33 +151,36 @@ RULES {
 	anforderungen+
 	;
 		
+	Anforderung ::=
+	id['[',']'] details "."
+	;		
+		
 	SystemAktivitaet ::=  
-	id['[',']'] "Das" "System"
+	"Das System"
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"'] 
 	objekt['"','"']
 	prozesswort['"','"']
-	
 	;
 	
 	EreignisAktivitaet ::=
-	id['[',']'] "Bei" "Ereignis"
+	"Bei Ereignis"
+	ausloeser['[',']']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
-	prozesswort['"','"']
 	objekt['"','"']
+	prozesswort['"','"']
 	;
 	
 	BenutzerInteraktion ::=
-	id['[',']']
+	subjekt['"','"']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
-	prozesswort['"','"']
 	objekt['"','"']
+	prozesswort['"','"']
 	;
 	
 	BedingteAnforderung ::=
-	id['[',']']
 	"Falls" vorbedingung['"','"']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
