@@ -148,8 +148,8 @@
         lowerBound="1" eType="#//RechtsVerbindlichkeit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="prozesswort" lowerBound="1"
         eType="#//Prozesswort"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="objekte" lowerBound="1"
-        upperBound="-1" eType="#//BegriffsEintrag"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objekt" lowerBound="1"
+        eType="#//BegriffsEintrag"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BedingteAnforderung" eSuperTypes="#//Anforderung">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vorbedingung" lowerBound="1"

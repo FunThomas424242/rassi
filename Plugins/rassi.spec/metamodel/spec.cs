@@ -146,43 +146,42 @@ RULES {
 	"*" name['[',']']
 	;
 	Lastenbeschreibung ::=
-	"Liste der Anforderungen:"
+	"Beschreibung der Anforderungen"
+	"=============================="
 	anforderungen+
 	;
 		
-	SystemAktivitaet ::= 
-	"* Systemaktivität" 
-	id['[',']']
+	SystemAktivitaet ::=  
+	id['[',']'] "Das" "System"
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"'] 
+	objekt['"','"']
 	prozesswort['"','"']
-	objekte['"','"']+
+	
 	;
 	
 	EreignisAktivitaet ::=
-	"* EreignisAktivität" 
-	id['[',']']
+	id['[',']'] "Bei" "Ereignis"
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
 	prozesswort['"','"']
-	objekte['"','"']+
+	objekt['"','"']
 	;
 	
 	BenutzerInteraktion ::=
-	"* BenutzerInteraktion" 
 	id['[',']']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
 	prozesswort['"','"']
-	objekte['"','"']+
+	objekt['"','"']
 	;
 	
 	BedingteAnforderung ::=
-"*" id['[',']']
-"Falls" vorbedingung['"','"']
+	id['[',']']
+	"Falls" vorbedingung['"','"']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
-	objekte['"','"']+
+	objekt['"','"']
 	prozesswort['"','"']
 	;
 	

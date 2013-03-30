@@ -109,7 +109,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/beschreibung"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Anforderung/rechtsverbindlichkeit"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/prozesswort"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/objekte"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spec.ecore#//Anforderung/objekt"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//BedingteAnforderung">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//BedingteAnforderung/vorbedingung"/>
