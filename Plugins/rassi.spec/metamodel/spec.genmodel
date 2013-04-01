@@ -30,6 +30,7 @@
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Ereignis">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ereignis/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Ereignis/beschreibung"/>
     </genClasses>
     <genClasses ecoreClass="spec.ecore#//Prozesswort">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spec.ecore#//Prozesswort/verb"/>

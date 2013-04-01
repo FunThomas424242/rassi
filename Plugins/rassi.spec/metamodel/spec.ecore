@@ -20,6 +20,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Ereignis">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="ereignis" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beschreibung" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Prozesswort">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -38,7 +40,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BegriffsEintrag">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="begriff" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="DefaultBegriff"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="begriff"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="DefaultDefinition"/>

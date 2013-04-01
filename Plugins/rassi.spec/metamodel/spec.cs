@@ -29,7 +29,7 @@ TOKENS {
 
 TOKENSTYLES {
 	"Masterdokument zur ", "Systemkontext", "Spezifikation des Systems " COLOR #7F0055, BOLD;
-	"Prozess", "Liste der Abkï¿½rzungen:" COLOR #7F0055, BOLD;
+	"Prozess", "Liste der Abkürzungen:" COLOR #7F0055, BOLD;
 	"Ereignis" COLOR #7F0055, BOLD;
 	"Prozesswort" COLOR #7F0055, BOLD;
 	"Anforderung" COLOR #7F0055, BOLD;
@@ -38,11 +38,6 @@ TOKENSTYLES {
 	" * Fremdsystem" COLOR #7F0055, BOLD;
 	" * System" COLOR #7F0055, BOLD;
 	"Glossar" COLOR #7F0055, BOLD;
-	"test2" COLOR #7F0055, BOLD;
-	"test3" COLOR #7F0055, BOLD;
-	"test4" COLOR #7F0055, BOLD;
-	"test5" COLOR #7F0055, BOLD;
-	"test6" COLOR #7F0055, BOLD;
 }
 
 
@@ -84,13 +79,13 @@ RULES {
 	 stakeholderliste ;
 	
 	Ziel ::= 
-	"*"  
+	"* "  
     id['[',']'] 
     kategorie['"','"']
     beschreibung['"','"'];
 	
 	KeinZiel ::= 
-	"*"  
+	"* "  
     id['[',']'] 
     kategorie['"','"'] 
     "Kein Ziel ist "
@@ -101,7 +96,7 @@ RULES {
 	stakeholder* ;
 	
 	Stakeholder ::= 
-	"*" 
+	"* " 
 	namenskuerzel['[',']']   
 	beschreibung['"','"']
 	;
@@ -123,11 +118,13 @@ RULES {
 	;
 	
 	BegriffsEintrag ::=
-	"*"  begriff['[',']'] definition['"','"'] synonym['"','"']* 
+	"* " 
+	begriff['[',']'] 
+	definition['"','"'] synonym['"','"']* 
 	;
 	
 	AbkuerzungsEintrag ::= 
-	"*"  
+	"* "  
 	abkuerzung['[',']'] 
 	definition['"','"']
 	;
@@ -140,10 +137,10 @@ RULES {
 	;
 		
 	Prozesswort ::= 
-	"*" verb['[',']'] beschreibung['"','"'] synonym['"','"']*
+	"* " verb['[',']'] beschreibung['"','"'] synonym['"','"']*
 	;
 	Ereignis ::= 
-	" * " name['[',']']
+	"* " name['[',']'] beschreibung['"','"']
 	;
 	Lastenbeschreibung ::=
 	"Beschreibung der Anforderungen"
@@ -157,35 +154,35 @@ RULES {
 		
 	SystemAktivitaet ::=  
 	"Das System"
-	rechtsverbindlichkeit['"','"']
+	rechtsverbindlichkeit['"','"'] 
 	beschreibung['"','"'] 
-	objekt['"','"']
-	prozesswort['"','"']
+	objekt['[',']'] 
+	prozesswort['[',']']
 	;
 	
 	EreignisAktivitaet ::=
 	"Bei Ereignis"
-	ausloeser['[',']']
-	rechtsverbindlichkeit['"','"']
-	beschreibung['"','"']
-	objekt['"','"']
-	prozesswort['"','"']
+	ausloeser['[',']'] 
+	rechtsverbindlichkeit['"','"'] 
+	beschreibung['"','"'] 
+	objekt['[',']'] 
+	prozesswort['[',']']
 	;
 	
 	BenutzerInteraktion ::=
-	subjekt['"','"']
+	subjekt['[',']']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
-	objekt['"','"']
-	prozesswort['"','"']
+	objekt['[',']']
+	prozesswort['[',']']
 	;
 	
 	BedingteAnforderung ::=
 	"Falls" vorbedingung['"','"']
 	rechtsverbindlichkeit['"','"']
 	beschreibung['"','"']
-	objekt['"','"']
-	prozesswort['"','"']
+	objekt['[',']']
+	prozesswort['[',']']
 	;
 	
 	
