@@ -7,6 +7,7 @@ OPTIONS{
  generateCodeFromGeneratorModel="true"; //wichtig um Fehler im Generat zu vermeiden
  disableLaunchSupport="false";
  usePredefinedTokens="true";
+ autofixSimpleLeftrecursion="true";
  //disableTokenSorting="false";
  //memoize="false";
  //resourcePluginID="net.sf.devtool.rezeptsammler.rezeptDSL.resource";
@@ -23,18 +24,15 @@ OPTIONS{
 TOKENS {
 	DEFINE COMMENT $'//'(~('\n'|'\r'|'\uffff'))*$;
 	//DEFINE INTEGER $('-')?('1'..'9')('0'..'9')*|'0'$;
-	DEFINE FLOAT $('-')?(('1'..'9') ('0'..'9')* | '0') '.' ('0'..'9')+ $;
+	//DEFINE FLOAT $('-')?(('1'..'9') ('0'..'9')* | '0') '.' ('0'..'9')+ $;
+	//DEFINE NUMBER $('1'..'9')+$;
 }
 
 
 TOKENSTYLES {
 	"Masterdokument zur ", "Systemkontext", "Spezifikation des Systems " COLOR #7F0055, BOLD;
-	"Prozess", "Liste der Abkürzungen:" COLOR #7F0055, BOLD;
-	"Ereignis" COLOR #7F0055, BOLD;
-	"Prozesswort" COLOR #7F0055, BOLD;
-	"Anforderung" COLOR #7F0055, BOLD;
-	"Abk" COLOR #7F0055, BOLD;
-	"Begriff" COLOR #7F0055, BOLD;
+	"Liste der Abkürzungen:" COLOR #7F0055, BOLD;
+	"Interner Prozess","Externer Prozess" COLOR #7F0055, BOLD;
 	" * Fremdsystem" COLOR #7F0055, BOLD;
 	" * System" COLOR #7F0055, BOLD;
 	"Glossar" COLOR #7F0055, BOLD;
@@ -130,17 +128,17 @@ RULES {
 	;
 	
 	InternerProzess ::= 
-	"* (intern)" name['[',']'] beschreibung['"','"'] prozesswort['"','"']
+	"* " "Interner Prozess" name['[',']'] "=" beschreibung['"','"'] "Prozesswort:"  prozesswort['"','"']
 	;
 	ExternerProzess ::= 
-	"* (extern)" name['[',']'] beschreibung['"','"'] 
+	"* " "Externer Prozess" name['[',']'] "=" beschreibung['"','"'] 
 	;
 		
 	Prozesswort ::= 
-	"* " verb['[',']'] beschreibung['"','"'] synonym['"','"']*
+	"* " verb['[',']'] "=" beschreibung['"','"'] "Synomyme:" ("-" | synonym['"','"']+)
 	;
 	Ereignis ::= 
-	"* " name['[',']'] beschreibung['"','"']
+	"* " name['[',']'] "=" beschreibung['"','"']
 	;
 	Lastenbeschreibung ::=
 	"Beschreibung der Anforderungen"
@@ -149,7 +147,7 @@ RULES {
 	;
 		
 	Anforderung ::=
-	id['[',']'] details "."
+	"1. " id['[',']'] details "."
 	;		
 		
 	SystemAktivitaet ::=  
